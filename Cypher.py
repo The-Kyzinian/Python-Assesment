@@ -59,8 +59,9 @@ while a == True:
     cryption = input("Would you Encrypt or Decrypt\nType 'E' or 'D' ")
     if cryption == "E":
         encrypt()
+        a = loop() 
     elif cryption == "D":
         decrypt()
+        a = loop() 
     else:
         print(f"{Fore.RED}[!] Invalid input, please try again")
-    a = loop() 
