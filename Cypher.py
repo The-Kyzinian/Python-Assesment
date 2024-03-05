@@ -2,9 +2,9 @@ from colorama import Fore, init  # Import the colorama for colored text
 init()  # Initialize the colorama library for colored text.
 
 a = True
-b = True
 
 def encrypt():
+    a = True
     # Prompt the user to enter the text to be encrypted        
     text_to_encrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
@@ -22,31 +22,31 @@ def encrypt():
     # Iterate through each character in the user's input message.
     for char in text_to_encrypt:
         if char == "E":
-            result += "R"
+            intermediate += "R"
         elif char == "e":
-            result += "r"
+            intermediate += "r"
         elif char == "R":
-            result += "E"
+            intermediate += "E"
         elif char == "r":
-            result += "e"
+            intermediate += "e"
         elif char == "T":
-            result += "H"
+            intermediate += "H"
         elif char == "t":
-            result += "h"
+            intermediate += "h"
         elif char == "H":
-            result += "T"
+            intermediate += "T"
         elif char == "h":
-            result += "t"
+            intermediate += "t"
         elif char == "I":
-            result += "N"
+            intermediate += "N"
         elif char == "i":
-            result += "n"
+            intermediate += "n"
         elif char == "N":
-            result += "I"
+            intermediate += "I"
         elif char == "n":
-            result += "i"
+            intermediate += "i"
         else:
-            result += char
+            intermediate += char
     for character in intermediate:
         # Check if the character is an alphabet letter.
         if character.isalpha():
@@ -55,19 +55,19 @@ def encrypt():
             # Check if the character is a lowercase letter.
             if character.islower():
                 # Apply Caesar cipher transformation for lowercase letters.
-                intermediate += chr(((ord(character) - ord('a') + shift) % 26) + ord('a'))
+                result += chr(((ord(character) - ord('a') + shift) % 26) + ord('a'))
             else:
                 # Apply Caesar cipher transformation for uppercase letters.
-                intermediate += chr(((ord(character) - ord('A') + shift) % 26) + ord('A'))
+                result += chr(((ord(character) - ord('A') + shift) % 26) + ord('A'))
         else:
             # Preserve non-alphabet characters as they are.
-            intermediate += character
-    return intermediate 
+            result += character
     # Return the encrypted or decrypted result.
-    encrypted_text = intermediate
+    encrypted_text = result
     print(f"{Fore.YELLOW} {text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
 
-def decrypt(text_to_decrypt):
+def decrypt():
+    a = True
     # Prompt the user to enter the text to be encrypted        
     text_to_decrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
@@ -128,35 +128,30 @@ def decrypt(text_to_decrypt):
     # Display the encrypted text.
     print(f"{Fore.YELLOW} {text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
 
+def loop():
+    b = True
+    while b == True:
+        loop = input(f"{Fore.WHITE}Would you like to preform another Encryption or Decryption\nType 'Y' or 'N' ")
+        if loop == "Y":
+            print("Understood")
+            a = True
+            b = False
+        elif loop == "N":
+            print("Understood\nGoodbye")
+            a = False
+            b = False
+        else:
+            print(f"{Fore.RED}[!] Invalid input, please try again")
+    return a
+
 print(f"{Fore.WHITE}Welcome to Caesar Cypher Encryption/Decryption")
 while a == True:
-    b = True
-    cryption = input("Would you Encpypt or Decrypt\nType 'E' or 'D'")
+    cryption = input("Would you Encrypt or Decrypt\nType 'E' or 'D' ")
     if cryption == "E":
-        encrypt
-        while b == True:
-            loop = input("Would you like to preform another Encryption or Decryption\nType 'Y' or 'N'")
-            if loop == "Y":
-                print("Understood")
-                b = False
-            elif loop == "N":
-                print("Understood\nGoodbye")
-                a = False
-                b = False
-            else:
-                print(f"{Fore.RED}[!] Invalid input, please try again\nDo Uppercase BTW\n")
+        encrypt()
+        a = loop() 
     elif cryption == "D":
-        decrypt
-        while b == True:
-            loop = input("Would you like to preform another Encryption or Decryption\nType 'Y' or 'N'")
-            if loop == "Y":
-                print("Understood")
-                b = False
-            elif loop == "N":
-                print("Understood\nGoodbye")
-                a = False
-                b = False
-            else:
-                print(f"{Fore.RED}[!] Invalid input, please try again\nDo Uppercase BTW\n")
+        decrypt()
+        a = loop()
     else:
-        print(f"{Fore.RED}[!] Invalid input, please try again\nDo Uppercase BTW\n")
+        print(f"{Fore.RED}[!] Invalid input, please try again")
