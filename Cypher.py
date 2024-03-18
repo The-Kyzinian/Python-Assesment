@@ -10,7 +10,7 @@ def encrypt():
     text_to_encrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
     while a == True:
-        temp_key = input("Please specify the shift length: ")
+        temp_key = input(f"{Fore.WHITE}Please specify the shift length: ")
         if temp_key.isdigit():
             key = int(temp_key)
             # Check if the specified key is within a valid range (0 to 25).
@@ -31,7 +31,7 @@ def decrypt():
     text_to_decrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
     while a == True:
-        temp_key = input("Please specify the shift length: ")
+        temp_key = input(f"{Fore.WHITE}Please specify the shift length: ")
         if temp_key.isdigit():
             key = int(temp_key)
             # Check if the specified key is within a valid range (0 to 25).
@@ -51,11 +51,11 @@ def loop():
     while b == True:
         loop = input(f"{Fore.WHITE}Would you like to preform another Encryption or Decryption\nType 'Y' or 'N' ")
         if loop == "Y":
-            print("Understood")
+            print(f"{Fore.WHITE}Understood")
             a = True
             b = False
         elif loop == "N":
-            print("Understood\nGoodbye")
+            print(f"{Fore.WHITE}Understood\nGoodbye")
             a = False
             b = False
         else:
@@ -64,7 +64,21 @@ def loop():
 
 print(f"{Fore.WHITE}Welcome to Caesar Cypher Encryption/Decryption")
 while a == True:
-    cryption = input("Would you Encrypt or Decrypt\nType 'E' or 'D' ")
+    file_read = input(f"{Fore.WHITE}Would you like to use a file to Perform an Encryption/Decryption\nType 'Y' or 'N' ")
+    if file_read == "Y":
+        print(f"{Fore.WHITE}Please confirm that the text has been written to {Fore.YELLOW}Text_Insert.txt")
+        print(f"{Fore.WHITE}Also note that only the first line will be used")
+        file_read =True
+        a = False
+    elif file_read == "N":
+        print(f"{Fore.WHITE}Understood")
+        file_read = False
+        a = False
+    else:
+        print(f"{Fore.RED}[!] Invalid input, please try again")
+a = True
+while a == True:
+    cryption = input(f"{Fore.WHITE}Would you like to Encrypt or Decrypt\nType 'E' or 'D' ")
     if cryption == "E":
         encrypt()
         a = loop() 

@@ -1,4 +1,4 @@
-For full experience install colorama
+To use  install colorama
 Go to Comand Prompt
 Type: py -m pip install colorama
 
