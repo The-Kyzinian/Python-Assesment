@@ -29,21 +29,21 @@ def encrypt(text_to_encrypt, key):
             intermediate += "i"
         else:
             intermediate += char
-    for character in intermediate:
+    for char in intermediate:
         # Check if the character is an alphabet letter.
-        if character.isalpha():
+        if char.isalpha():
             # Determine the shift amount based. i.e the amount of times to be shifted e.g 2,3,4....
             shift = key
             # Check if the character is a lowercase letter.
-            if character.islower():
+            if char.islower():
                 # Apply Caesar cipher transformation for lowercase letters.
-                result += chr(((ord(character) - ord('a') + shift) % 26) + ord('a'))
+                result += chr(((ord(char) - ord('a') + shift) % 26) + ord('a'))
             else:
                 # Apply Caesar cipher transformation for uppercase letters.
-                result += chr(((ord(character) - ord('A') + shift) % 26) + ord('A'))
+                result += chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
         else:
             # Preserve non-alphabet characters as they are.
-            result += character
+            result += char
     # Return the encrypted or decrypted result.
     return result
 
@@ -51,21 +51,21 @@ def decrypt(text_to_decrypt, key):
     result = ""
     intermediate = ""
     # Encrypt the user's input using the specified key.
-    for character in text_to_decrypt:
+    for char in text_to_decrypt:
         # Check if the character is an alphabet letter.
-        if character.isalpha():
+        if char.isalpha():
             # Determine the shift amount based. i.e the amount of times to be shifted e.g 2,3,4....
             shift = -key
             # Check if the character is a lowercase letter.
-            if character.islower():
+            if char.islower():
                 # Apply Caesar cipher transformation for lowercase letters.
-                intermediate += chr(((ord(character) - ord('a') + shift) % 26) + ord('a'))
+                intermediate += chr(((ord(char) - ord('a') + shift) % 26) + ord('a'))
             else:
                 # Apply Caesar cipher transformation for uppercase letters.
-                intermediate += chr(((ord(character) - ord('A') + shift) % 26) + ord('A'))
+                intermediate += chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
         else:
             # Preserve non-alphabet characters as they are.
-            intermediate += character
+            intermediate += char
     for char in intermediate:
             if char == "E":
                 result += "R"

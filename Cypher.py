@@ -10,13 +10,17 @@ def encrypt():
     text_to_encrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
     while a == True:
-        key = int(input("Please specify the shift length: "))
-        # Check if the specified key is within a valid range (0 to 25).
-        if key > 25 or key < 0:
-            # Display an error message if the key is out of range.
-           print(f"{Fore.RED}[!] Your shift length should be between 0 and 25 ")
+        temp_key = input("Please specify the shift length: ")
+        if temp_key.isdigit():
+            key = int(temp_key)
+            # Check if the specified key is within a valid range (0 to 25).
+            if key > 25 or key < 0:
+                # Display an error message if the key is out of range.
+                print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+            else:
+                a = False
         else:
-            a = False
+            print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
         # Encrypt the user's input using the specified key.
     encrypted_text = cypher_helper.encrypt(text_to_encrypt,key)
     print(f"{Fore.YELLOW} {text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
@@ -27,13 +31,17 @@ def decrypt():
     text_to_decrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
     # Prompt the user to specify the shift length (the key).
     while a == True:
-        key = int(input("Please specify the shift length: "))
-        # Check if the specified key is within a valid range (0 to 25).
-        if key > 25 or key < 0:
-            # Display an error message if the key is out of range.
-           print(f"{Fore.RED}[!] Your shift length should be between 0 and 25 ")
+        temp_key = input("Please specify the shift length: ")
+        if temp_key.isdigit():
+            key = int(temp_key)
+            # Check if the specified key is within a valid range (0 to 25).
+            if key > 25 or key < 0:
+                # Display an error message if the key is out of range.
+                print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+            else:
+                a = False
         else:
-            a = False
+            print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
     decrypted_text = cypher_helper.decrypt(text_to_decrypt, key)
     # Display the encrypted text.
     print(f"{Fore.YELLOW} {text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
