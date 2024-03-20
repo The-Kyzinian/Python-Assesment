@@ -30,6 +30,7 @@ def encrypt(file_read):
     print(f"{Fore.YELLOW} {text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(encrypted_text)
+        w.write("\n")
 
 def decrypt(file_read):
     a = True
@@ -57,6 +58,7 @@ def decrypt(file_read):
     print(f"{Fore.YELLOW} {text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(decrypted_text)
+        w.write("\n")
 
 def loop():
     b = True
