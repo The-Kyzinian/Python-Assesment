@@ -64,6 +64,7 @@ def loop():
     b = True
     while b == True:
         loop = input(f"{Fore.WHITE}Would you like to preform another Encryption or Decryption\nType 'Y' or 'N' ")
+        loop = loop.upper()
         if loop == "Y":
             print(f"{Fore.WHITE}Understood")
             a = True
@@ -79,6 +80,7 @@ def loop():
 print(f"{Fore.WHITE}Welcome to Caesar Cypher Encryption/Decryption")
 while a == True:
     file_read = input(f"{Fore.WHITE}Would you like to use a file to Perform an Encryption/Decryption\nType 'Y' or 'N' ")
+    file_read = file_read.upper()
     if file_read == "Y":
         print(f"{Fore.WHITE}Please confirm that the text has been written to {Fore.YELLOW}Text_Insert.txt")
         print(f"{Fore.WHITE}Also note that only the first line will be used")
@@ -93,6 +95,7 @@ while a == True:
 a = True
 while a == True:
     cryption = input(f"{Fore.WHITE}Would you like to Encrypt or Decrypt\nType 'E' or 'D' ")
+    cryption = cryption.upper()
     if cryption == "E":
         encrypt(file_read)
         a = loop() 
