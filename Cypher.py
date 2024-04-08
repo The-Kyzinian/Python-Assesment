@@ -63,7 +63,7 @@ def decrypt(file_read):
 def loop():
     b = True
     while b == True:
-        loop = input(f"{Fore.WHITE}Would you like to preform another Encryption or Decryption\nType 'Y' or 'N' ")
+        loop = input(f"{Fore.WHITE}Would you like to perform another Encryption or Decryption\nType 'Y' or 'N' ")
         loop = loop.upper()
         if loop == "Y":
             print(f"{Fore.WHITE}Understood")
