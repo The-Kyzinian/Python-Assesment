@@ -71,6 +71,9 @@ def loop():
             b = False
         elif loop == "N":
             print(f"{Fore.WHITE}Understood\nGoodbye")
+            with open('Cypher_Log.txt', 'a') as w:
+                w.write("----------------------------------")
+                w.write("\n")
             a = False
             b = False
         else:
