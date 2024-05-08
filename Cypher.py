@@ -20,14 +20,14 @@ def encrypt(file_read):
             # Check if the specified key is within a valid range (0 to 25).
             if key > 25 or key < 0:
                 # Display an error message if the key is out of range.
-                print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+                print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
             else:
                 a = False
         else:
-            print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+            print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
         # Encrypt the user's input using the specified key.
     encrypted_text = cypher_helper.encrypt(text_to_encrypt,key)
-    print(f"{Fore.YELLOW} {text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
+    print(f"{Fore.YELLOW}{text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(encrypted_text)
         w.write("\n")
@@ -48,14 +48,14 @@ def decrypt(file_read):
             # Check if the specified key is within a valid range (0 to 25).
             if key > 25 or key < 0:
                 # Display an error message if the key is out of range.
-                print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+                print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
             else:
                 a = False
         else:
-            print(f"{Fore.RED}[!] Your shift length should be a number between 0 and 25 ")
+            print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
     decrypted_text = cypher_helper.decrypt(text_to_decrypt, key)
     # Display the encrypted text.
-    print(f"{Fore.YELLOW} {text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
+    print(f"{Fore.YELLOW}{text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(decrypted_text)
         w.write("\n")
