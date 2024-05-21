@@ -27,6 +27,14 @@ def encrypt(text_to_encrypt, key):
             intermediate += "I"
         elif char == "n":
             intermediate += "i"
+        elif char == "A":
+            intermediate += "S"
+        elif char == "a":
+            intermediate += "s"
+        elif char == "S":
+            intermediate += "A"
+        elif char == "s":
+            intermediate += "a"
         else:
             intermediate += char
     for char in intermediate:
@@ -91,6 +99,14 @@ def decrypt(text_to_decrypt, key):
                 result += "I"
             elif char == "n":
                 result += "i"
+            elif char == "A":
+                result += "S"
+            elif char == "a":
+                result += "s"
+            elif char == "S":
+                result += "A"
+            elif char == "s":
+                result += "a"
             else:
                 result += char
     return result
