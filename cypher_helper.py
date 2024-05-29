@@ -1,4 +1,16 @@
+"""
+Cypher Helper.
+
+This is where the actual encryption/decryption occurs.
+"""
+
+
 def encrypt(text_to_encrypt, key):
+    """
+    Encrypt.
+
+    This is the encryption code, with Therinas.
+    """
     result = ""
     intermediate = ""
     # \/ This is Therinas, it is for basic frecuency analysis prevention
@@ -52,8 +64,14 @@ def encrypt(text_to_encrypt, key):
             result += char
     # Return the encrypted or decrypted result.
     return result
-# /\ The actual encryption
+
+
 def decrypt(text_to_decrypt, key):
+    """
+    Decrypt.
+
+    This is the decryption code, with Therinas.
+    """
     result = ""
     intermediate = ""
     for char in text_to_decrypt:
