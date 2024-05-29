@@ -70,6 +70,17 @@ class TestEncryptDecrypt(unittest.TestCase):
         expected = 'THERINAStherinas'
         r = cypher_helper.decrypt(input,1)
         self.assertEqual(r,expected)
-
+    
+    def test_encrypt_capitals(self):
+        input = "BCD"
+        expected = 'CDE'
+        r = cypher_helper.encrypt(input,1)
+        self.assertEqual(r,expected)
+    
+    def test_decrypt_capitals(self):
+        input = "CDE"
+        expected = 'BCD'
+        r = cypher_helper.decrypt(input,1)
+        self.assertEqual(r,expected)
 if __name__ == '__main__':
     unittest.main()
