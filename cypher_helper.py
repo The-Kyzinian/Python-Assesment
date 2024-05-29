@@ -1,7 +1,7 @@
 def encrypt(text_to_encrypt, key):
     result = ""
     intermediate = ""
-    # Iterate through each character in the user's input message.
+    # \/ This is Therinas, it is for basic frecuency analysis prevention
     for char in text_to_encrypt:
         if char == "E":
             intermediate += "R"
@@ -38,9 +38,7 @@ def encrypt(text_to_encrypt, key):
         else:
             intermediate += char
     for char in intermediate:
-        # Check if the character is an alphabet letter.
         if char.isalpha():
-            # Determine the shift amount based. i.e the amount of times to be shifted e.g 2,3,4....
             shift = key
             # Check if the character is a lowercase letter.
             if char.islower():
@@ -54,26 +52,20 @@ def encrypt(text_to_encrypt, key):
             result += char
     # Return the encrypted or decrypted result.
     return result
-
+# /\ The actual encryption
 def decrypt(text_to_decrypt, key):
     result = ""
     intermediate = ""
-    # Encrypt the user's input using the specified key.
     for char in text_to_decrypt:
-        # Check if the character is an alphabet letter.
         if char.isalpha():
-            # Determine the shift amount based. i.e the amount of times to be shifted e.g 2,3,4....
             shift = -key
-            # Check if the character is a lowercase letter.
             if char.islower():
-                # Apply Caesar cipher transformation for lowercase letters.
                 intermediate += chr(((ord(char) - ord('a') + shift) % 26) + ord('a'))
             else:
-                # Apply Caesar cipher transformation for uppercase letters.
                 intermediate += chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
         else:
-            # Preserve non-alphabet characters as they are.
             intermediate += char
+    # \/ Therinas again
     for char in intermediate:
             if char == "E":
                 result += "R"

@@ -2,64 +2,57 @@ import cypher_helper
 from colorama import Fore, init  # Import the colorama for colored text
 init()  # Initialize the colorama library for colored text.
 
-a = True
+a = True # This is for looping things
 
+# \/ The interface for encryption
 def encrypt(file_read):
     a = True
     if file_read == True:
         with open('Text_Insert.txt', 'r') as r:
             text_to_encrypt = r.readline()
-    else:
-        # Prompt the user to enter the text to be encrypted        
+    else:          
         text_to_encrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
-    # Prompt the user to specify the shift length (the key).
     while a == True:
         temp_key = input(f"{Fore.WHITE}Please specify the shift length: ")
         if temp_key.isdigit():
             key = int(temp_key)
-            # Check if the specified key is within a valid range (0 to 25).
             if key > 25 or key < 0:
-                # Display an error message if the key is out of range.
                 print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
             else:
                 a = False
         else:
             print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
-        # Encrypt the user's input using the specified key.
     encrypted_text = cypher_helper.encrypt(text_to_encrypt,key)
     print(f"{Fore.YELLOW}{text_to_encrypt} {Fore.WHITE}has been encrypted as {Fore.YELLOW}{encrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(encrypted_text)
         w.write("\n")
 
+# \/ The interface for decryption
 def decrypt(file_read):
     a = True
     if file_read == True:
         with open('Text_Insert.txt', 'r') as r:
             text_to_decrypt = r.readline()
-    else:
-        # Prompt the user to enter the text to be encrypted        
+    else:         
         text_to_decrypt = input(f"{Fore.WHITE}Please Enter your text/message: ")
-    # Prompt the user to specify the shift length (the key).
     while a == True:
         temp_key = input(f"{Fore.WHITE}Please specify the shift length: ")
         if temp_key.isdigit():
             key = int(temp_key)
-            # Check if the specified key is within a valid range (0 to 25).
             if key > 25 or key < 0:
-                # Display an error message if the key is out of range.
                 print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
             else:
                 a = False
         else:
             print(f"{Fore.RED}[!] Your shift length should be an integer number between 0 and 25 ")
     decrypted_text = cypher_helper.decrypt(text_to_decrypt, key)
-    # Display the encrypted text.
     print(f"{Fore.YELLOW}{text_to_decrypt} {Fore.WHITE}has been decrypted as {Fore.YELLOW}{decrypted_text}")
     with open('Cypher_Log.txt', 'a') as w:
         w.write(decrypted_text)
         w.write("\n")
 
+# \/ This is to see if the user wants to do another thing
 def loop():
     b = True
     while b == True:
@@ -81,6 +74,7 @@ def loop():
     return a
 
 print(f"{Fore.WHITE}Welcome to Caesar Cypher Encryption/Decryption")
+# \/ If you would like to read from the file
 while a == True:
     file_read = input(f"{Fore.WHITE}Would you like to use a file to Perform an Encryption/Decryption\nType 'Y' or 'N' ")
     file_read = file_read.upper()
@@ -95,7 +89,8 @@ while a == True:
         a = False
     else:
         print(f"{Fore.RED}[!] Invalid input, please try again")
-a = True
+a = True # I need to reset it
+# \/ The main interface
 while a == True:
     cryption = input(f"{Fore.WHITE}Would you like to Encrypt or Decrypt\nType 'E' or 'D' ")
     cryption = cryption.upper()
