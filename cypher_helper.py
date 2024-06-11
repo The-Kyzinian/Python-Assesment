@@ -52,17 +52,12 @@ def encrypt(text_to_encrypt, key):
     for char in intermediate:
         if char.isalpha():
             shift = key
-            # Check if the character is a lowercase letter.
             if char.islower():
-                # Apply Caesar cipher transformation for lowercase letters.
                 result += chr(((ord(char) - ord('a') + shift) % 26) + ord('a'))
             else:
-                # Apply Caesar cipher transformation for uppercase letters.
                 result += chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
         else:
-            # Preserve non-alphabet characters as they are.
             result += char
-    # Return the encrypted or decrypted result.
     return result
 
 
@@ -85,38 +80,38 @@ def decrypt(text_to_decrypt, key):
             intermediate += char
     # \/ Therinas again
     for char in intermediate:
-            if char == "E":
-                result += "R"
-            elif char == "e":
-                result += "r"
-            elif char == "R":
-                result += "E"
-            elif char == "r":
-                result += "e"
-            elif char == "T":
-                result += "H"
-            elif char == "t":
-                result += "h"
-            elif char == "H":
-                result += "T"
-            elif char == "h":
-                result += "t"
-            elif char == "I":
-                result += "N"
-            elif char == "i":
-                result += "n"
-            elif char == "N":
-                result += "I"
-            elif char == "n":
-                result += "i"
-            elif char == "A":
-                result += "S"
-            elif char == "a":
-                result += "s"
-            elif char == "S":
-                result += "A"
-            elif char == "s":
-                result += "a"
-            else:
-                result += char
+        if char == "E":
+            result += "R"
+        elif char == "e":
+            result += "r"
+        elif char == "R":
+            result += "E"
+        elif char == "r":
+            result += "e"
+        elif char == "T":
+            result += "H"
+        elif char == "t":
+            result += "h"
+        elif char == "H":
+            result += "T"
+        elif char == "h":
+            result += "t"
+        elif char == "I":
+            result += "N"
+        elif char == "i":
+            result += "n"
+        elif char == "N":
+            result += "I"
+        elif char == "n":
+            result += "i"
+        elif char == "A":
+            result += "S"
+        elif char == "a":
+            result += "s"
+        elif char == "S":
+            result += "A"
+        elif char == "s":
+            result += "a"
+        else:
+            result += char
     return result

@@ -36,8 +36,8 @@ class TestEncryptDecrypt(unittest.TestCase):
         self.assertEqual(rdecrypt,expected)
 
     def test_encrypt_decrypt_sym(self):
-        input = "~`!@#$%^&*()_-++{[}]|\:;'<,>.?/"
-        expected = "~`!@#$%^&*()_-++{[}]|\:;'<,>.?/"
+        input = "~`!@#$%^&*()_-+={[}]|\:;'<,>.?/"
+        expected = "~`!@#$%^&*()_-+={[}]|\:;'<,>.?/"
         rencrypt = cypher_helper.encrypt(input,1)
         rdecrypt = cypher_helper.decrypt(input,1)
         self.assertEqual(rencrypt,expected)

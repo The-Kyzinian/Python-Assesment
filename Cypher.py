@@ -102,7 +102,7 @@ while a is True:
     file_read = file_read.upper()
     if file_read == "Y":
         print(f"{Fore.WHITE}Please confirm that the text has been written to {Fore.YELLOW}Text_Insert.txt")
-        print(f"{Fore.WHITE}Also note that only the first line will be used")
+        print(f"{Fore.WHITE}Make sure to save and also note that only the first line will be used")
         file_read = True
         a = False
     elif file_read == "N":
