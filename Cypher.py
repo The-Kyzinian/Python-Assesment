@@ -96,6 +96,7 @@ def loop():
 
 
 print(f"{Fore.WHITE}Welcome to Caesar Cypher Encryption/Decryption")
+print(f"{Fore.WHITE}Please note that non-english letters will not function properly")
 # \/ If you would like to read from the file
 while a is True:
     file_read = input(f"{Fore.WHITE}Would you like to use a file to Perform an Encryption/Decryption\nType 'Y' or 'N' ")
